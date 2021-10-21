@@ -190,11 +190,11 @@ class UserController{
 
             const newDate = new Date(playDate)
             const sendMail = await sendEmail(Email,
-            `You have successfully add new footbal match between ${home} and ${away} to your watchlist. Don't missed to watch it on ${newDate}.`)
+            `You have successfully add new footbal match between ${home} and ${away} to your watchlist. Don't missed to watch it at ${newDate.getHours()}:${newDate.getMinutes()} WIB.`)
             if(Email.split('@')[1] === 'gmail.com'){
                 const calendar = await setCalendar({
                     day: newDate.getDate(),
-                    description: `Don't forget to watch footbal match between ${home} and ${away} at ${newDate.getHours()}:${newDate.getMinutes()} WIB`,
+                    description: `Don't forget to watch footbal match between ${home} and ${away} at ${newDate.getHours()}:${newDate.getMinutes()} WIB.`,
                     email: Email,
                     time: newDate
                 })
